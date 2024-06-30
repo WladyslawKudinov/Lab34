@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 
 public class GUI {
     private ReactorTypeStorage reactorHolder = new ReactorTypeStorage();
-
+    private JFrame currentInfoFrame;
     public static void main(String[] args) {
         showFrame();
     }
@@ -105,14 +105,17 @@ public class GUI {
     }
 
     private void showReactorData(ReactorType reactor) {
-        JFrame infoFrame = new JFrame("Reactor Data");
+        if (currentInfoFrame != null) {
+            currentInfoFrame.dispose();
+        }
+        currentInfoFrame = new JFrame("Reactor Data");
         JTextArea infoTextArea = new JTextArea(reactor.toString());
         infoTextArea.setEditable(false);
         infoTextArea.setFont(new Font("Verdana", Font.BOLD, 14));
-        infoFrame.add(infoTextArea);
-        infoFrame.pack();
-        infoFrame.setLocationRelativeTo(null);
-        infoFrame.setVisible(true);
+        currentInfoFrame.add(infoTextArea);
+        currentInfoFrame.pack();
+        currentInfoFrame.setLocationRelativeTo(null);
+        currentInfoFrame.setVisible(true);
     }
 
 }
