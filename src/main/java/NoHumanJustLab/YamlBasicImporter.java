@@ -43,7 +43,7 @@ public class YamlBasicImporter extends BasicImporter {
         Double firstLoad = ((Number) innerMap.get("first_load")).doubleValue();
         Double kpd = ((Number) innerMap.get("kpd")).doubleValue();
         Integer lifeTime = (Integer) innerMap.get("life_time");
-        Double thermalCapacity = firstLoad = ((Number) innerMap.get("termal_capacity")).doubleValue();
+        Double thermalCapacity = ((Number) innerMap.get("termal_capacity")).doubleValue();
         ReactorType reactorType = new ReactorType(type, reactorClass, burnup, electricalCapacity, enrichment, firstLoad, kpd, lifeTime, thermalCapacity, "YAML");
         return reactorType;
     }
